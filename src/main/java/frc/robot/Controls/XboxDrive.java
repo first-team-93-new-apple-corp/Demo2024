@@ -26,7 +26,10 @@ public class XboxDrive implements ControllerSchemeIO {
         }
         return value;
     }
-
+    @Override
+    public double Throttle(){
+        return 1-LeftStick.getThrottle();
+    }
     @Override
     public double InputLeft() {
         return deadzone(-Xbox.getLeftY());

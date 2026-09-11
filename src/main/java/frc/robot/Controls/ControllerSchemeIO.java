@@ -30,6 +30,8 @@ public interface ControllerSchemeIO {
 
     public double InputTheta();
 
+    public double Throttle();
+
     public Trigger Intake();
 
     public Trigger Outtake();

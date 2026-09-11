@@ -3,6 +3,15 @@ package frc.robot;
 
 public class Constants {
 
+
+    public class DIO {
+        public static final int LED_Red_L = 0;
+        public static final int LED_Green_L = 1;
+        public static final int LED_Blue_L = 2;
+        public static final int LED_Red_R = 3;
+        public static final int LED_Green_R = 4;
+        public static final int LED_Blue_R = 5;
+    }
     public class Thrustmaster {
         public static final int Trigger = 1;
         public static final int Center_Button = 2;

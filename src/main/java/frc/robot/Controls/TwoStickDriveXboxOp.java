@@ -10,6 +10,7 @@ public class TwoStickDriveXboxOp extends XboxDrive {
     public CommandJoystick LeftStick;
     public CommandJoystick RightStick;
     public CommandXboxController operatorController;
+    public double throttle;
 
     public TwoStickDriveXboxOp(int LeftPort, int RightPort, int opPort) {
         super(LeftPort, RightPort, opPort);
@@ -23,6 +24,15 @@ public class TwoStickDriveXboxOp extends XboxDrive {
             return 0.0;
         }
         return value;
+    }
+    @Override
+    public double Throttle(){
+        throttle = 1-LeftStick.getThrottle();
+        return throttle;
+    }
+
+    public double Throttle2(){
+        return 1-RightStick.getThrottle();
     }
 
     @Override
