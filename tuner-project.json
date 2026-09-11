@@ -10,7 +10,7 @@
         "Name": "FL C",
         "Model": "CANCoder vers. H",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": null
       },
       "SteerMotor": {
@@ -18,7 +18,7 @@
         "Name": "FL_Steer",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -31,7 +31,7 @@
         "Name": "FL_DRIVE",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -59,7 +59,7 @@
         "Name": "FR C",
         "Model": "CANCoder vers. H",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": null
       },
       "SteerMotor": {
@@ -67,7 +67,7 @@
         "Name": "FR_STEER",
         "Model": "Talon FX vers. C",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -80,7 +80,7 @@
         "Name": "FR_DRIVE",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -108,7 +108,7 @@
         "Name": "BL C",
         "Model": "CANCoder",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": null
       },
       "SteerMotor": {
@@ -116,7 +116,7 @@
         "Name": "BL_STEER",
         "Model": "Talon FX vers. C",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -129,7 +129,7 @@
         "Name": "BL_Drive",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -157,7 +157,7 @@
         "Name": "BR C",
         "Model": "CANCoder",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": null
       },
       "SteerMotor": {
@@ -165,7 +165,7 @@
         "Name": "BR_STEER",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -178,7 +178,7 @@
         "Name": "BR_DRIVE",
         "Model": "Talon FX",
         "CANbus": "4E03A403394C4853202020503E1819FF",
-        "CANbusFriendly": "drivetrain",
+        "CANbusFriendly": "rio",
         "SelectedMotorType": {
           "Name": "WCP Kraken x60",
           "FreeSpeedRps": 96.7,
@@ -205,7 +205,7 @@
       "Name": "pigeon",
       "Model": "Pigeon 2 vers. S",
       "CANbus": "4E03A403394C4853202020503E1819FF",
-      "CANbusFriendly": "drivetrain",
+      "CANbusFriendly": "rio",
       "SelectedMotorType": null
     },
     "IsValidGyroCANbus": true,
