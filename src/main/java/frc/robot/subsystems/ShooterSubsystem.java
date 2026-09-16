@@ -6,15 +6,17 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import com.ctre.phoenix6.hardware.TalonFX;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkLowLevel.MotorType;
+import com.ctre.phoenix6.signals.MotorAlignmentValue;
+import com.ctre.phoenix6.controls.Follower;
+import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class ShooterSubsystem extends SubsystemBase {
     LEDSubsystem m_LED;
-    TalonFX ShooterR = new TalonFX(17);
-    TalonFX ShooterL = new TalonFX(16);
-    static CANSparkMax KickerL;
-    static CANSparkMax KickerR;
+    TalonFX ShooterR = new TalonFX(Constants.ShooterConstants.ShooterR);
+    TalonFX ShooterL = new TalonFX(Constants.ShooterConstants.ShooterL);
+    static SparkMax KickerL;
+    static SparkMax KickerR;
     double SpeakerShooterSpeed = 0.55;
     double currentspeed;
     final double MuzzleIntake = -0.1;
@@ -26,12 +28,10 @@ public class ShooterSubsystem extends SubsystemBase {
     public ShooterSubsystem(LEDSubsystem m_LED) {
         this.m_LED = m_LED;
         if (KickerL == null || KickerR == null) {
-            KickerL = new CANSparkMax(18, MotorType.kBrushless);
-            KickerR = new CANSparkMax(19, MotorType.kBrushless);
+            KickerL = new SparkMax(18, MotorType.kBrushless);
+            KickerR = new SparkMax(19, MotorType.kBrushless);
         }
-        ShooterL.setInverted(true);
-        ShooterR.setInverted(false);
-        KickerR.setInverted(true);
+        ShooterL.setControl(new Follower(Constants.ShooterConstants.ShooterL, MotorAlignmentValue.Opposed));
     }
 
     public void shoot(double speed) {
