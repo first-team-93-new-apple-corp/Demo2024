@@ -17,21 +17,20 @@ public class ShooterSubsystem extends SubsystemBase {
     TalonFX ShooterL = new TalonFX(Constants.ShooterConstants.ShooterL);
     static SparkMax KickerL;
     static SparkMax KickerR;
-    double SpeakerShooterSpeed = 0.55;
-    double currentspeed;
-    final double MuzzleIntake = -0.1;
-    final double AmpShooterSpeed = 0.1;
-    final double KickerSpeed = 1;
-    final double DribbleSpeed = .25;
+    static double SpeakerShooterSpeed = 0.55;
+    static double currentspeed;
+    static double MuzzleIntake = -0.1;
+    final static double AmpShooterSpeed = 0.1;
+    final static double KickerSpeed = 1;
+    final static double DribbleSpeed = .25;
     double StartTime;
 
-    public ShooterSubsystem(LEDSubsystem m_LED) {
-        this.m_LED = m_LED;
+    public ShooterSubsystem() {
         if (KickerL == null || KickerR == null) {
             KickerL = new SparkMax(18, MotorType.kBrushless);
             KickerR = new SparkMax(19, MotorType.kBrushless);
         }
-        ShooterL.setControl(new Follower(Constants.ShooterConstants.ShooterL, MotorAlignmentValue.Opposed));
+        ShooterL.setControl(new Follower(Constants.ShooterConstants.ShooterR, MotorAlignmentValue.Opposed));
     }
 
     public void shoot(double speed) {
@@ -95,6 +94,14 @@ public class ShooterSubsystem extends SubsystemBase {
     public void DribbleOutNote() {
         shoot(DribbleSpeed);
         kicker(DribbleSpeed);
+    }
+
+    public Command Shoot() {
+        return this.runOnce(() -> shoot(SpeakerShooterSpeed));
+    }
+
+    public Command Stop() {
+        return this.runOnce(() -> shoot(0));
     }
 
     public Command AutonAmp() {
