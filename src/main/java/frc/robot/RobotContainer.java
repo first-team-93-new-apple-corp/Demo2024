@@ -37,7 +37,7 @@ public class RobotContainer {
 
     private final ControllerSchemeIO driver = new ThrottleableDrive(0, 1, 2);
 
-    private final CommandXboxController joystick = new CommandXboxController(0);
+    private final CommandXboxController joystick = new CommandXboxController(2);
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
