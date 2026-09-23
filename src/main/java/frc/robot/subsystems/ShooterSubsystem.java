@@ -5,18 +5,28 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import com.ctre.phoenix6.hardware.DeviceIdentifier;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.MotorAlignmentValue;
+import com.ctre.phoenix6.signals.InvertedValue;
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.ControlRequest;
 import com.ctre.phoenix6.controls.Follower;
+import com.revrobotics.PersistMode;
+import com.revrobotics.ResetMode;
 import com.revrobotics.spark.SparkMax;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 
 public class ShooterSubsystem extends SubsystemBase {
     LEDSubsystem m_LED;
     TalonFX ShooterR = new TalonFX(Constants.ShooterConstants.ShooterR);
     TalonFX ShooterL = new TalonFX(Constants.ShooterConstants.ShooterL);
+    TalonFXConfiguration configL = new TalonFXConfiguration();
     static SparkMax KickerL;
     static SparkMax KickerR;
+    SparkMaxConfig krConfig = new SparkMaxConfig();
     static double SpeakerShooterSpeed = 0.55;
     static double currentspeed;
     static double MuzzleIntake = -0.1;
@@ -30,7 +40,11 @@ public class ShooterSubsystem extends SubsystemBase {
             KickerL = new SparkMax(18, MotorType.kBrushless);
             KickerR = new SparkMax(19, MotorType.kBrushless);
         }
-        ShooterL.setControl(new Follower(Constants.ShooterConstants.ShooterR, MotorAlignmentValue.Opposed));
+        configL.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
+        ShooterL.getConfigurator().apply(configL);
+        // ShooterL.setControl(new )
+        krConfig.inverted(true);
+        KickerR.configure(krConfig, ResetMode.kResetSafeParameters, PersistMode.kPersistParameters);
     }
 
     public void shoot(double speed) {
@@ -96,12 +110,16 @@ public class ShooterSubsystem extends SubsystemBase {
         kicker(DribbleSpeed);
     }
 
+    // public Command Shoot() {
+    //     return this.runOnce(() -> shoot(SpeakerShooterSpeed));
+    // }
+
     public Command Shoot() {
-        return this.runOnce(() -> shoot(SpeakerShooterSpeed));
+        return this.runOnce(() -> DribbleOutNote());
     }
 
     public Command Stop() {
-        return this.runOnce(() -> shoot(0));
+        return this.runOnce(() -> shooterStop());
     }
 
     public Command AutonAmp() {
