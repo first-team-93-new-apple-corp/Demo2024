@@ -44,18 +44,6 @@ public interface ControllerSchemeIO {
 
     public Trigger autoExtendClimber();
 
-    public Trigger WiggleIntake();
-
-    public Trigger LowerIntake();
-
-    public Trigger RaiseIntake();
-
-    public Trigger baseIntake();
-
-    public Trigger maxIntake();
-
-    public Trigger middleIntake();
-
     public Trigger Prime();
 
     public Trigger seed();

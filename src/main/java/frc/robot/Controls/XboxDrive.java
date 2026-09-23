@@ -79,37 +79,6 @@ public class XboxDrive implements ControllerSchemeIO {
     }
 
     @Override
-    public Trigger WiggleIntake() {
-        return Xbox.rightBumper();
-    }
-
-    @Override
-    public Trigger LowerIntake() {
-        return Xbox.a();
-    }
-
-    @Override
-    public Trigger RaiseIntake() {
-        return Xbox.y();
-    }
-
-    @Override
-    public Trigger baseIntake() {
-        return Xbox.a();
-    }
-
-    @Override
-    public Trigger maxIntake() {
-        return Xbox.y();
-    }
-
-    @Override
-    public Trigger middleIntake() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'middleIntake'");
-    }
-
-    @Override
     public Trigger Prime() {
         return Xbox.leftTrigger();
     }

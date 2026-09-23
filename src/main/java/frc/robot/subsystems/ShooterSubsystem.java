@@ -29,7 +29,7 @@ public class ShooterSubsystem extends SubsystemBase {
     SparkMaxConfig krConfig = new SparkMaxConfig();
     static double SpeakerShooterSpeed = 0.55;
     static double currentspeed;
-    static double MuzzleIntake = -0.1;
+    static double MuzzleIntake = -0.3;
     final static double AmpShooterSpeed = 0.1;
     final static double KickerSpeed = 1;
     final static double DribbleSpeed = .25;
@@ -120,6 +120,10 @@ public class ShooterSubsystem extends SubsystemBase {
 
     public Command Stop() {
         return this.runOnce(() -> shooterStop());
+    }
+
+    public Command Intake() {
+        return this.runOnce(() -> intakeFront());
     }
 
     public Command AutonAmp() {

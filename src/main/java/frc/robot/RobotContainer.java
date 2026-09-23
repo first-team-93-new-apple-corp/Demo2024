@@ -85,6 +85,8 @@ public class RobotContainer {
 
         joystick.rightTrigger(0.5).whileTrue(shooter.Shoot());
         joystick.rightTrigger(0.5).onFalse(shooter.Stop());
+        joystick.x().whileTrue(shooter.Intake());
+        joystick.x().onFalse(shooter.Stop());
     }
 
     public Command getAutonomousCommand() {
