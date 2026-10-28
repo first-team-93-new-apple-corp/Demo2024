@@ -19,6 +19,7 @@ import frc.robot.Controls.ControllerSchemeIO;
 import frc.robot.Controls.ThrottleableDrive;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.LEDSubsystem;
 
 public class RobotContainer {
     private double MaxSpeed = 0.3 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -39,8 +40,14 @@ public class RobotContainer {
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
 
+    private LEDSubsystem leds = new LEDSubsystem();
+
     public RobotContainer() {
         configureBindings();
+    }
+
+    public void setup(){
+        leds.startup();
     }
 
     private void configureBindings() {

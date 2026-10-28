@@ -29,7 +29,10 @@ public class Robot extends TimedRobot {
         m_timeAndJoystickReplay.update();
         CommandScheduler.getInstance().run(); 
     }
-
+    @Override
+    public void robotInit(){
+        m_robotContainer.setup();
+    }
     @Override
     public void disabledInit() {}
 
