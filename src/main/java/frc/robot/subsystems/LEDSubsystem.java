@@ -14,15 +14,15 @@ public class LEDSubsystem extends SubsystemBase {
     private static final int MAX_HUE = 180;
     public LEDCommands commands = new LEDCommands();
 
-    DigitalOutput RL;
-    DigitalOutput GL;
-    DigitalOutput BL;
-    DigitalOutput RR;
-    DigitalOutput GR;
-    DigitalOutput BR;
-    DigitalOutput bR;
-    DigitalOutput bG;
-    DigitalOutput bB;
+    DigitalOutput leftRed;
+    DigitalOutput leftGreen;
+    DigitalOutput leftBlue;
+    DigitalOutput rightRed;
+    DigitalOutput rightGreen;
+    DigitalOutput rightBlue;
+    DigitalOutput bottomRed;
+    DigitalOutput bottomGreen;
+    DigitalOutput bottomBlue;
 
 
     boolean vibe = true;
@@ -34,50 +34,44 @@ public class LEDSubsystem extends SubsystemBase {
     boolean pwmStarted;
 
     public void startup() {
-        if (RL == null) {
-            RL = new DigitalOutput(DIO.LED_Red_L);
-            GL = new DigitalOutput(DIO.LED_Green_L);
-            BL = new DigitalOutput(DIO.LED_Blue_L);
-            RR = new DigitalOutput(DIO.LED_Red_R);
-            GR = new DigitalOutput(DIO.LED_Green_R);
-            BR = new DigitalOutput(DIO.LED_Blue_R);
-            // bR = new DigitalOutput(DIO.LED_Red_B);
-            // bG = new DigitalOutput(DIO.LED_Green_B);
-            // bB = new DigitalOutput(DIO.LED_Blue_B);
-            System.out.println("Testing***************");
+        if (leftRed == null) {
+            leftRed = new DigitalOutput(DIO.LED_Red_Left);
+            leftGreen = new DigitalOutput(DIO.LED_Green_Left);
+            leftBlue = new DigitalOutput(DIO.LED_Blue_Left);
+            rightRed = new DigitalOutput(DIO.LED_Red_Right);
+            rightGreen = new DigitalOutput(DIO.LED_Green_Right);
+            rightBlue = new DigitalOutput(DIO.LED_Blue_Right);
+            bottomRed = new DigitalOutput(DIO.LED_Red_Bottom);
+            bottomGreen = new DigitalOutput(DIO.LED_Green_Bottom);
+            bottomBlue = new DigitalOutput(DIO.LED_Blue_Bottom);
             setColor(Color.kWhite);
-            System.out.println("Testing***************");
         }
     }
 
     public void setColor(Color m_color) {
-        if (!pwmStarted) {
-            RL.enablePWM(m_color.red);
-            GL.enablePWM(m_color.green);
-            BL.enablePWM(m_color.blue);
+        leftRed.disablePWM();
+        leftGreen.disablePWM();
+        leftBlue.disablePWM();
 
-            RR.enablePWM(m_color.red);
-            GR.enablePWM(m_color.green);
-            BR.enablePWM(m_color.blue);
+        rightRed.disablePWM();
+        rightGreen.disablePWM();
+        rightBlue.disablePWM();
 
-            // bR.enablePWM(m_color.red);
-            // bG.enablePWM(m_color.green);
-            // bB.enablePWM(m_color.blue);
-            pwmStarted = true;
-            return;
-        }
+        bottomRed.disablePWM();
+        bottomGreen.disablePWM();
+        bottomBlue.disablePWM();
 
-        RL.updateDutyCycle(m_color.red);
-        GL.updateDutyCycle(m_color.green);
-        BL.updateDutyCycle(m_color.blue);
+        leftRed.enablePWM(m_color.red);
+        leftGreen.enablePWM(m_color.green);
+        leftBlue.enablePWM(m_color.blue);
 
-        RR.updateDutyCycle(m_color.red);
-        GR.updateDutyCycle(m_color.green);
-        BR.updateDutyCycle(m_color.blue);
+        rightRed.enablePWM(m_color.red);
+        rightGreen.enablePWM(m_color.green);
+        rightBlue.enablePWM(m_color.blue);
 
-        // bR.updateDutyCycle(m_color.red);
-        // bG.updateDutyCycle(m_color.green);
-        // bB.updateDutyCycle(m_color.blue);
+        bottomRed.enablePWM(m_color.red);
+        bottomGreen.enablePWM(m_color.green);
+        bottomBlue.enablePWM(m_color.blue);
     }
 
     public void off() {

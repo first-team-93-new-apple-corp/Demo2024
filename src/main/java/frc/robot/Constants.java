@@ -5,15 +5,15 @@ public class Constants {
 
 
     public class DIO {
-        public static final int LED_Red_L = 0;
-        public static final int LED_Green_L = 1;
-        public static final int LED_Blue_L = 2;
-        public static final int LED_Red_R = 3;
-        public static final int LED_Green_R = 4;
-        public static final int LED_Blue_R = 5;
-        public static final int LED_Red_B = 7;
-        public static final int LED_Green_B = 8;
-        public static final int LED_Blue_B = 9;
+        public static final int LED_Red_Left = 0;
+        public static final int LED_Green_Left = 1;
+        public static final int LED_Blue_Left = 2;
+        public static final int LED_Red_Right = 3;
+        public static final int LED_Green_Right = 4;
+        public static final int LED_Blue_Right = 5;
+        public static final int LED_Red_Bottom = 7;
+        public static final int LED_Green_Bottom = 8;
+        public static final int LED_Blue_Bottom = 9;
     }
     public class Thrustmaster {
         public static final int Trigger = 1;
