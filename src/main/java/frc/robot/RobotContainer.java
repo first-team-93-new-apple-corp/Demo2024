@@ -19,6 +19,8 @@ import frc.robot.Controls.ControllerSchemeIO;
 import frc.robot.Controls.ThrottleableDrive;
 import frc.robot.generated.TunerConstants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
+import frc.robot.subsystems.LEDSubsystem;
+import frc.robot.subsystems.ShooterSubsystem;
 
 public class RobotContainer {
     private double MaxSpeed = 0.3 * TunerConstants.kSpeedAt12Volts.in(MetersPerSecond); // kSpeedAt12Volts desired top speed
@@ -35,9 +37,11 @@ public class RobotContainer {
 
     private final ControllerSchemeIO driver = new ThrottleableDrive(0, 1, 2);
 
-    private final CommandXboxController joystick = new CommandXboxController(0);
+    private final CommandXboxController joystick = new CommandXboxController(2);
 
     public final CommandSwerveDrivetrain drivetrain = TunerConstants.createDrivetrain();
+
+    public final ShooterSubsystem shooter = new ShooterSubsystem();
 
     public RobotContainer() {
         configureBindings();
@@ -78,6 +82,11 @@ public class RobotContainer {
         driver.seed().onTrue(drivetrain.runOnce(drivetrain::seedFieldCentric));
 
         drivetrain.registerTelemetry(logger::telemeterize);
+
+        joystick.rightTrigger(0.5).whileTrue(shooter.Shoot());
+        joystick.rightTrigger(0.5).onFalse(shooter.Stop());
+        joystick.x().whileTrue(shooter.Intake());
+        joystick.x().onFalse(shooter.Stop());
     }
 
     public Command getAutonomousCommand() {

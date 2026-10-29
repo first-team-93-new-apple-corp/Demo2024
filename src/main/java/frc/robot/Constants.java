@@ -106,4 +106,9 @@ public class Constants {
         }
     }
 
+    public class ShooterConstants {
+        public static final int ShooterR = 17;
+        public static final int ShooterL = 16;
+    }
+
 }
